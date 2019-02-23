@@ -1,3 +1,4 @@
+import { LoginService } from './../../../rant-service/login.service';
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import {NgForm} from '@angular/forms';
 
@@ -15,7 +16,7 @@ export class LogginComponent implements OnInit {
   isPasswordValid = true;
   Username = "";
   Password = "";
-  constructor() { }
+  constructor(private loginService: LoginService) { }
 
   ngOnInit() {
   }
@@ -37,7 +38,16 @@ export class LogginComponent implements OnInit {
 
   onLoginSubmit(login: NgForm){
     if (login.valid) {
+      this.showLoginProgress = true;
+      debugger;
 
+      this.loginService.getUserActive(this.Username, this.Password).subscribe(
+        (obj : any) =>{
+          this.showLoginProgress = false;
+        },
+        error => {
+
+        });
     }else{
       if(login.value.username === ""){
         this.isUserNamevalid = false;

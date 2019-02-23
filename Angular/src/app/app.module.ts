@@ -11,13 +11,14 @@ import { AppComponent } from "./app.component";
 import { HeaderComponent } from "./common-component/header/header.component";
 import { LoaderComponent } from "./common-component/loader/loader.component";
 import { LogginComponent } from "./rant-component/shared/loggin/loggin.component";
+import { LoginService } from "./rant-service/login.service";
 
 
 
 @NgModule({
   declarations: [AppComponent, HeaderComponent, LoaderComponent, LogginComponent],
   imports: [BrowserModule, AppRoutingModule, FormsModule, HttpClientModule],
-  providers: [],
+  providers: [LoginService],
   bootstrap: [AppComponent]
 })
 export class AppModule {}
