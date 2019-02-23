@@ -17,12 +17,13 @@ import { TokenInterceptor } from "./rant-service/token.interceptor";
 import { RantlistComponent } from "./rant-component/rantlist/rantlist.component";
 import { RantComponent } from "./rant-component/rant/rant.component";
 import { RantService } from "./rant-service/rant.service";
+import { AlertComponent } from "./common-component/alert/alert.component";
 
 
 
 
 @NgModule({
-  declarations: [AppComponent, HeaderComponent, LoaderComponent, LogginComponent, RantlistComponent, RantComponent],
+  declarations: [AppComponent, HeaderComponent, LoaderComponent, LogginComponent, RantlistComponent, RantComponent, AlertComponent],
   imports: [BrowserModule, AppRoutingModule, FormsModule, HttpClientModule,
     LocalStorageModule.withConfig({
       prefix: 'my-app',
