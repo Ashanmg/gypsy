@@ -11,7 +11,7 @@ export class AlertComponent implements OnInit {
   description: any;
 
   @Input() alertData;
-
+  @Input() isAlertPopupOpen = false;
   constructor() { }
 
   ngOnInit() {
@@ -22,6 +22,10 @@ export class AlertComponent implements OnInit {
       this.title = "OPPS";
       this.description = "Something goes wrong. Try again within few minutes";
     }
+  }
+
+  exitAlertPopup(){
+    this.isAlertPopupOpen = false;
   }
 
 }

@@ -1,6 +1,6 @@
-<div class="popup popup--open">
+<div class="popup" [ngClass]="{'popup--open': isAlertPopupOpen}">
   <div class="popup__header">
-    <div title="Close" class="close layout--center">
+    <div title="Close" class="close layout--center" (click)="exitAlertPopup()">
       X
     </div>
   </div>
@@ -16,7 +16,7 @@
         </div>
         <form name="alert">
           <div class="alert">
-            <input type="submit" value="OK" />
+            <input type="submit" value="OK" (click)="exitAlertPopup()" />
           </div>
         </form>
       </div>
