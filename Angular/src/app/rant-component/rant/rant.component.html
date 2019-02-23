@@ -1,10 +1,6 @@
 <article class="post" *ngFor="let rant of rantList">
   <div class="post__inner">
-    <div class="score">
-      <div class="score__up layout--center" [ngClass]="{'checked': rant.myVote === 1}" (click)="onVoteForRant(rant,true)">++</div>
-      <div class="score__board layout--center">{{rant.votes}}</div>
-      <div class="score__down layout--center" [ngClass]="{'checked': rant.myVote === -1}" (click)="onVoteForRant(rant,false)">--</div>
-    </div>
+    <app-myvote [totalvotes]="rant.votes" [myVote]="rant.myVote" (valueChange)="onVoteForRant($event, rant)"></app-myvote>
     <div class="post__body" (click)="viewRantDetails(rant)">{{rant.content}}</div>
   </div>
   <div class="post__footer">

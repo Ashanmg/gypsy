@@ -1,0 +1,5 @@
+<div class="score">
+  <div class="score__up layout--center" [ngClass]="{'checked': myVote === 1}" (click)="onVoteForRant(true)">++</div>
+  <div class="score__board layout--center">{{totalvotes}}</div>
+  <div class="score__down layout--center" [ngClass]="{'checked': myVote === -1}" (click)="onVoteForRant(false)">--</div>
+</div>

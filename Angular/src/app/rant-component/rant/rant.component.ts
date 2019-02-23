@@ -38,9 +38,9 @@ export class RantComponent implements OnInit {
     );
   }
 
-  onVoteForRant(rant, isupvote){
+  onVoteForRant(result,rant){
     if(this.storageService.getUserDetails() !== null){
-      let direction = isupvote ? "up" : "down";
+      let direction = result ? "up" : "down";
 
       if(rant.myVote === 1 && direction === "up"){
         direction = "reset";

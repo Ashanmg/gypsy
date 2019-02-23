@@ -2,11 +2,7 @@
 
   <section class="post-hero">
     <div class="post-hero__inner">
-      <div class="score">
-        <div class="score__up layout--center">++</div>
-        <div class="score__board layout--center">100</div>
-        <div class="score__down layout--center">--</div>
-      </div>
+      <app-myvote [totalvotes]="rantData.votes" [myVote]="rantData.myVote" (valueChange)="onVoteForRant($event, rantData)"></app-myvote>
       <div class="post-hero__body">
         <div class="profile">
           <div class="profile__picture">
@@ -15,17 +11,17 @@
             </svg>
           </div>
           <div class="profile__name">
-            Elon
+            {{rantData.author}}
           </div>
         </div>
         <div class="post__details">
-          Lorem ipsum
+          {{rantData.content}}
         </div>
       </div>
     </div>
     <div class="post-hero__footer">
       <div class="post-hero__delete">DELETE</div>
-      <div class="post-hero__time">2m ago</div>
+      <div class="post-hero__time">{{rantData.displayTime}}</div>
     </div>
   </section>
 
@@ -34,7 +30,7 @@
     <h1 class="comments__title">
       <span>#</span>Comments</h1>
 
-    <section class="comment">
+    <section class="comment" *ngFor="let comment of rantData.comments">
       <div class="comment__inner">
         <div class="comment__body">
           <div class="profile">
@@ -44,18 +40,18 @@
               </svg>
             </div>
             <div class="profile__name">
-              Elon
+              {{comment.author}}
             </div>
           </div>
           <div class="post__details">
-            Lorem ipsum
+            {{comment.comment}}
             <br />
           </div>
         </div>
       </div>
       <div class="comment__footer">
         <div class="comment__delete">DELETE</div>
-        <div class="comment__time">2m ago</div>
+        <div class="comment__time">{{comment.displayTime}}</div>
       </div>
     </section>
 
