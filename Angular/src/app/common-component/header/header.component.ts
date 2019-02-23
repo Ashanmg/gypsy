@@ -17,7 +17,15 @@ export class HeaderComponent implements OnInit {
   constructor(private localStorage : StorageService) { }
 
   ngOnInit() {
-
+    if(this.localStorage.getUserDetails() !== null){
+      const userData = this.localStorage.getUserDetails();
+      if(userData.username !== null && userData.token !== null){
+        this.isUserLoggingSuccess = true;
+        this.loggedUsername = userData.username;
+      }
+    } else{
+      this.localStorage.cleanUserDetails();
+    }
   }
 
   loginDevRant(data){
