@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'app-alert',
@@ -7,9 +7,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AlertComponent implements OnInit {
 
+  title: any;
+  description: any;
+
+  @Input() alertData;
+
   constructor() { }
 
   ngOnInit() {
+    if(this.alertData !== null){
+      this.title = this.alertData.title;
+      this.description = this.alertData.description;
+    } else {
+      this.title = "OPPS";
+      this.description = "Something goes wrong. Try again within few minutes";
+    }
   }
 
 }
