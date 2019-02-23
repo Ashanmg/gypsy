@@ -14,18 +14,32 @@
                 <div class="form__description">
                     Vote and comment on others' rants. Post your own.
                 </div>
-                <form name="login">
+                <form name="formlogin" (ngSubmit)="onLoginSubmit(login)" #login="ngForm">
                     <div class="login">
+                        <input 
+                          type="text" 
+                          id="username"
+                          name="username" 
+                          placeholder="USERNAME"
+                          #username="ngModel"
+                          ngModel
+                          required
+                          (blur)="loginFormInput('username')"
+                          autofocus/>
+                        <div class="form__error" *ngIf="!isUserNamevalid">Please enter your username</div>
+                        
+                        <input 
+                          type="password"
+                          id="pword"
+                          placeholder="PASSWORD"
+                          name="pword"
+                          #pword="ngModel"
+                          ngModel
+                          (blur)="loginFormInput('password')"
+                          required/>
+                        <div class="form__error" *ngIf="!isPasswordValid">Please enter your password</div>
 
-                        <input type="text" name="username" placeholder="USERNAME" autofocus/>
-                        <input type="password" placeholder="PASSWORD" />
-
-                        <app-loader [isLoading]="showLoginProgress"></app-loader>
-
-                        <div class="form__error">
-                            Some fields are missing !
-                        </div>
-
+                        <app-loader [isLoading]="showLoginProgress"></app-loader>                        
                         <input type="submit" value="LET ME IN" />
                     </div>
                 </form>
