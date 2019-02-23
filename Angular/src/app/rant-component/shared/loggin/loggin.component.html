@@ -20,9 +20,7 @@
                         <input type="text" name="username" placeholder="USERNAME" autofocus/>
                         <input type="password" placeholder="PASSWORD" />
 
-                        <div class="loader">
-                            <div class="spinner"></div>
-                        </div>
+                        <app-loader [isLoading]="showLoginProgress"></app-loader>
 
                         <div class="form__error">
                             Some fields are missing !

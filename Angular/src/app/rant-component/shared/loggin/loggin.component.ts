@@ -9,6 +9,7 @@ export class LogginComponent implements OnInit {
 
   @Input() isLogginPopupOpen = false;
   @Output() exitPopup = new EventEmitter();
+  showLoginProgress = false; 
   constructor() { }
 
   ngOnInit() {
