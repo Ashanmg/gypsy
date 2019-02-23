@@ -16,7 +16,7 @@
                 </div>
                 <form name="formlogin" (ngSubmit)="onLoginSubmit(login)" #login="ngForm">
                     <div class="login">
-                        <input 
+                        <input *ngIf="!showLoginProgress" 
                           type="text" 
                           id="username"
                           name="username" 
@@ -29,7 +29,7 @@
                           autofocus/>
                         <div class="form__error" *ngIf="!isUserNamevalid">Please enter your username</div>
                         
-                        <input 
+                        <input *ngIf="!showLoginProgress"
                           type="password"
                           id="pword"
                           placeholder="PASSWORD"
@@ -42,7 +42,7 @@
                         <div class="form__error" *ngIf="!isPasswordValid">Please enter your password</div>
 
                         <app-loader [isLoading]="showLoginProgress"></app-loader>                        
-                        <input type="submit" value="LET ME IN" tabindex="3" />
+                        <input type="submit" value="LET ME IN" tabindex="3"/>
                     </div>
                 </form>
             </div>
