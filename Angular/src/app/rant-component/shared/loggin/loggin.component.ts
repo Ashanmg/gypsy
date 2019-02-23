@@ -16,6 +16,7 @@ export class LogginComponent implements OnInit {
   isPasswordValid = true;
   Username = "";
   Password = "";
+  isCredentialValid = true;
   constructor(private loginService: LoginService) { }
 
   ngOnInit() {
@@ -28,6 +29,7 @@ export class LogginComponent implements OnInit {
     this.isPasswordValid = true;
     this.isUserNamevalid = true;
     this.showLoginProgress = false;
+    this.isCredentialValid = true;
   }
 
   exitLogginPopup(){
@@ -39,16 +41,20 @@ export class LogginComponent implements OnInit {
   onLoginSubmit(login: NgForm){
     if (login.valid) {
       this.showLoginProgress = true;
-      debugger;
+      this.isCredentialValid = true;
 
       this.loginService.getUserActive(this.Username, this.Password).subscribe(
         (obj : any) =>{
+          if(!obj.ok){
+            this.isCredentialValid = false;
+          }
           this.showLoginProgress = false;
         },
         error => {
 
         });
     }else{
+      this.isCredentialValid = true;
       if(login.value.username === ""){
         this.isUserNamevalid = false;
       }
