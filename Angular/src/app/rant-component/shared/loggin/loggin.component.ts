@@ -1,6 +1,7 @@
 import { LoginService } from './../../../rant-service/login.service';
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import {NgForm} from '@angular/forms';
+import { StorageService } from '../../../rant-service/local-storage.service';
 
 @Component({
   selector: 'app-loggin',
@@ -11,13 +12,15 @@ export class LogginComponent implements OnInit {
 
   @Input() isLogginPopupOpen = false;
   @Output() exitPopup = new EventEmitter();
+  @Output() userlogin = new EventEmitter();
   showLoginProgress = false;
   isUserNamevalid = true;
   isPasswordValid = true;
   Username = "";
   Password = "";
   isCredentialValid = true;
-  constructor(private loginService: LoginService) { }
+
+  constructor(private loginService: LoginService, private storageService : StorageService) { }
 
   ngOnInit() {
   }
@@ -47,6 +50,10 @@ export class LogginComponent implements OnInit {
         (obj : any) =>{
           if(!obj.ok){
             this.isCredentialValid = false;
+          } else{
+            this.storageService.saveUserDetails(obj.username, obj.token);
+            this.exitLogginPopup();
+            this.userlogin.emit(true);
           }
           this.showLoginProgress = false;
         },

@@ -8,19 +8,19 @@
     </div>
 
     <!-- User Profile -->
-    <div class="profile layout--center" *ngIf="false">
+    <div class="profile layout--center" *ngIf="isUserLoggingSuccess">
       <div class="profile__picture">
         <svg height="36" width="36">
           <circle cx="18" cy="18" r="18" fill="#5c5f6f"></circle>
         </svg>
       </div>
-      <div class="profile__name">Elon</div>
+      <div class="profile__name">{{loggedUsername}}</div>
     </div>
 
     <div class="join">
-      <span *ngIf="true" (click)="loginDevRant(true)">Join</span>
-      <span *ngIf="false">Sign Out</span>
+      <span *ngIf="!isUserLoggingSuccess" (click)="loginDevRant(true)">Join</span>
+      <span *ngIf="isUserLoggingSuccess">Sign Out</span>
     </div>
   </div>
 </section>
-<app-loggin [isLogginPopupOpen]="isLogedIn" (exitPopup)="loginDevRant($event)"></app-loggin>
+<app-loggin [isLogginPopupOpen]="isLogedIn" (userlogin)="isloggedUser($event)" (exitPopup)="loginDevRant($event)"></app-loggin>
