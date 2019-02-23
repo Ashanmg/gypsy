@@ -7,9 +7,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
 
+  isLogginProgress = false;
   constructor() { }
 
   ngOnInit() {
+  }
+
+  loginDevRant(){
+    this.isLogginProgress = true;
   }
 
 }
