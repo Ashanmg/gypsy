@@ -40,7 +40,14 @@ export class RantComponent implements OnInit {
 
   onVoteForRant(rant, isupvote){
     if(this.storageService.getUserDetails() !== null){
-      const direction = isupvote ? "up" : "down";
+      let direction = isupvote ? "up" : "down";
+
+      if(rant.myVote === 1 && direction === "up"){
+        direction = "reset";
+      } else if(rant.myVote === -1 && direction === "down"){
+        direction = "reset";
+      }
+      
       this.rantService.setRantVote(rant.id, direction).subscribe((obj : any) => {
         if(obj.ok){
           this.getRantList();
