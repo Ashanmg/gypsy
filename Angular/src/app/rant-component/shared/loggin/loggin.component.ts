@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-loggin',
@@ -8,10 +8,15 @@ import { Component, OnInit, Input } from '@angular/core';
 export class LogginComponent implements OnInit {
 
   @Input() isLogginPopupOpen = false;
-
+  @Output() exitPopup = new EventEmitter();
   constructor() { }
 
   ngOnInit() {
+  }
+
+  exitLogginPopup(){
+    this.isLogginPopupOpen = false;
+    this.exitPopup.emit(this.isLogginPopupOpen); 
   }
 
 }

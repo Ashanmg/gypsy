@@ -18,9 +18,9 @@
     </div>
 
     <div class="join">
-      <span *ngIf="true" (click)="loginDevRant()">Join</span>
+      <span *ngIf="true" (click)="loginDevRant(true)">Join</span>
       <span *ngIf="false">Sign Out</span>
     </div>
   </div>
 </section>
-<app-loggin [isLogginPopupOpen]="isLogginProgress"></app-loggin>
+<app-loggin [isLogginPopupOpen]="isLogedIn" (exitPopup)="loginDevRant($event)"></app-loggin>

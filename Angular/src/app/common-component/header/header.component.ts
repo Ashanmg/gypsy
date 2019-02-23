@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { LogginComponent } from '../../rant-component/shared/loggin/loggin.component';
+
 
 @Component({
   selector: 'app-header',
@@ -7,14 +9,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
 
-  isLogginProgress = false;
+  isLogedIn = false;
   constructor() { }
 
   ngOnInit() {
   }
 
-  loginDevRant(){
-    this.isLogginProgress = true;
+  loginDevRant(data){
+    this.isLogedIn = data;
   }
 
 }
