@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'app-loggin',
@@ -6,6 +6,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./loggin.component.css']
 })
 export class LogginComponent implements OnInit {
+
+  @Input() isLogginPopupOpen = false;
 
   constructor() { }
 
