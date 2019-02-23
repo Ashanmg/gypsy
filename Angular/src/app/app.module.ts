@@ -3,7 +3,7 @@ import { BrowserModule } from "@angular/platform-browser";
 import { NgModule } from "@angular/core";
 import { AppRoutingModule } from './app-routing.module';
 import { FormsModule } from "@angular/forms";
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { LocalStorageModule } from 'angular-2-local-storage';
 
 // rant component
@@ -13,6 +13,7 @@ import { LoaderComponent } from "./common-component/loader/loader.component";
 import { LogginComponent } from "./rant-component/shared/loggin/loggin.component";
 import { LoginService } from "./rant-service/login.service";
 import { StorageService } from "./rant-service/local-storage.service";
+import { TokenInterceptor } from "./rant-service/token.interceptor";
 
 
 
@@ -23,7 +24,12 @@ import { StorageService } from "./rant-service/local-storage.service";
       prefix: 'my-app',
       storageType: 'localStorage'
   })],
-  providers: [LoginService, StorageService],
+  providers: [LoginService, StorageService,
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: TokenInterceptor,
+      multi: true
+    }],
   bootstrap: [AppComponent]
 })
 export class AppModule {}

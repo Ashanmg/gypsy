@@ -19,7 +19,7 @@
 
     <div class="join">
       <span *ngIf="!isUserLoggingSuccess" (click)="loginDevRant(true)">Join</span>
-      <span *ngIf="isUserLoggingSuccess">Sign Out</span>
+      <span *ngIf="isUserLoggingSuccess" (click)="signOut()">Sign Out</span>
     </div>
   </div>
 </section>

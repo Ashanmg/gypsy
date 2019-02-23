@@ -1,6 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { LogginComponent } from '../../rant-component/shared/loggin/loggin.component';
 import { StorageService } from '../../rant-service/local-storage.service';
+import { LoginService } from '../../rant-service/login.service';
 
 
 @Component({
@@ -14,7 +15,7 @@ export class HeaderComponent implements OnInit {
   isUserLoggingSuccess = false;
   loggedUsername: any;
 
-  constructor(private localStorage : StorageService) { }
+  constructor(private localStorage : StorageService, private loginService: LoginService) { }
 
   ngOnInit() {
     if(this.localStorage.getUserDetails() !== null){
@@ -32,11 +33,25 @@ export class HeaderComponent implements OnInit {
     this.isLogedIn = data;
   }
 
+  signOut(){
+    this.loginService.setUserDeactive().subscribe(
+      (obj : any) => {
+        if(obj.ok){
+          this.localStorage.cleanUserDetails();
+          this.isUserLoggingSuccess = false;
+          this.loggedUsername = "";
+        }else{
+          console.log(obj);
+        }
+      }, error => {
+
+      });
+  }
+
   isloggedUser(data){
     this.isUserLoggingSuccess = true;
     let userData = this.localStorage.getUserDetails();
     this.loggedUsername = userData['username'];
-    debugger;
   }
 
 }

@@ -17,4 +17,12 @@ export class LoginService {
     return this.http.post(apiUrl, params);
   }
 
+  setUserDeactive(){
+
+    const apiUrl = "https://api.devrant.thusitha.site/v1/user.deactivate";
+
+    return this.http.post(apiUrl, null);
+
+  }
+
 }
