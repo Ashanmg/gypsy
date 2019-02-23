@@ -39,7 +39,6 @@ export class LogginComponent implements OnInit {
     if (login.valid) {
 
     }else{
-      debugger;
       if(login.value.username === ""){
         this.isUserNamevalid = false;
       }
