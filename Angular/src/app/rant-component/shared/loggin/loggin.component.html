@@ -25,6 +25,7 @@
                           ngModel
                           required
                           (blur)="loginFormInput('username')"
+                          tabindex="1"
                           autofocus/>
                         <div class="form__error" *ngIf="!isUserNamevalid">Please enter your username</div>
                         
@@ -36,11 +37,12 @@
                           #pword="ngModel"
                           ngModel
                           (blur)="loginFormInput('password')"
+                          tabindex="2"
                           required/>
                         <div class="form__error" *ngIf="!isPasswordValid">Please enter your password</div>
 
                         <app-loader [isLoading]="showLoginProgress"></app-loader>                        
-                        <input type="submit" value="LET ME IN" />
+                        <input type="submit" value="LET ME IN" tabindex="3" />
                     </div>
                 </form>
             </div>
