@@ -14,11 +14,12 @@ import { LogginComponent } from "./rant-component/shared/loggin/loggin.component
 import { LoginService } from "./rant-service/login.service";
 import { StorageService } from "./rant-service/local-storage.service";
 import { TokenInterceptor } from "./rant-service/token.interceptor";
+import { RantlistComponent } from "./rant-component/rantlist/rantlist.component";
 
 
 
 @NgModule({
-  declarations: [AppComponent, HeaderComponent, LoaderComponent, LogginComponent],
+  declarations: [AppComponent, HeaderComponent, LoaderComponent, LogginComponent, RantlistComponent],
   imports: [BrowserModule, AppRoutingModule, FormsModule, HttpClientModule,
     LocalStorageModule.withConfig({
       prefix: 'my-app',
