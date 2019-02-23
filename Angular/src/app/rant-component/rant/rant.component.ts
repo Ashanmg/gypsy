@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { RantService } from './../../rant-service/rant.service';
+import { Component, OnInit, EventEmitter, Output } from '@angular/core';
+import { RantModel } from './rant.model';
 
 @Component({
   selector: 'app-rant',
@@ -7,9 +9,26 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RantComponent implements OnInit {
 
-  constructor() { }
+  rantList : any = [];
+  @Output() gettingrantList = new EventEmitter();
+
+
+  constructor(private rantService: RantService) { }
 
   ngOnInit() {
-  }
+    this.rantService.getRantList().subscribe(
+      (obj : any) => {
+        if(obj.ok){
+          if(obj.posts.length > 0){
+            this.rantList = obj.posts;
+            this.gettingrantList.emit(false);
+          }
+        }else{
+          console.log(obj);
+        }
+      },error => {
 
+      }
+    );
+  }
 }

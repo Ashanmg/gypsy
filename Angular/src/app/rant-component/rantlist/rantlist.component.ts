@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'app-rantlist',
@@ -7,9 +7,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RantlistComponent implements OnInit {
 
+  @Input() showProgress = false;
+
   constructor() { }
 
   ngOnInit() {
+    this.showProgress = true;
+  }
+
+  isLoadingRantList(value){
+    this.showProgress = value;
   }
 
 }

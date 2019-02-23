@@ -16,6 +16,7 @@ import { StorageService } from "./rant-service/local-storage.service";
 import { TokenInterceptor } from "./rant-service/token.interceptor";
 import { RantlistComponent } from "./rant-component/rantlist/rantlist.component";
 import { RantComponent } from "./rant-component/rant/rant.component";
+import { RantService } from "./rant-service/rant.service";
 
 
 
@@ -32,7 +33,8 @@ import { RantComponent } from "./rant-component/rant/rant.component";
       provide: HTTP_INTERCEPTORS,
       useClass: TokenInterceptor,
       multi: true
-    }],
+    },
+    RantService],
   bootstrap: [AppComponent]
 })
 export class AppModule {}
