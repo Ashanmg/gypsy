@@ -22,4 +22,10 @@ export class RantService {
 
     return this.http.post(apiVoteRantUrl, params);
   }
+
+  getRantDetails(postId){
+    const apiRantDetailUrl = "https://api.devrant.thusitha.site/v1/";
+
+    return this.http.get(apiRantDetailUrl + `post.details?postId=${postId}`);
+  }
 }

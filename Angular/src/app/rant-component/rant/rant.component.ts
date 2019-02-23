@@ -1,7 +1,7 @@
 import { Router, Routes } from '@angular/router';
-import { RantService } from './../../rant-service/rant.service';
+import { RantService } from '../../rant-service/rant.service';
 import { Component, OnInit, EventEmitter, Output } from '@angular/core';
-import { RantModel } from './rant.model';
+import { RantModel } from '../rantdetail/rant.model';
 import { StorageService } from '../../rant-service/local-storage.service';
 
 @Component({
@@ -47,7 +47,7 @@ export class RantComponent implements OnInit {
       } else if(rant.myVote === -1 && direction === "down"){
         direction = "reset";
       }
-      
+
       this.rantService.setRantVote(rant.id, direction).subscribe((obj : any) => {
         if(obj.ok){
           this.getRantList();
@@ -60,5 +60,9 @@ export class RantComponent implements OnInit {
     }else{
 
     }
+  }
+
+  viewRantDetails(rant){
+    this.router.navigate(['/rant'], { queryParams: { rant_id: rant.id } });
   }
 }

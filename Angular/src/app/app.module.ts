@@ -1,10 +1,10 @@
 // rant modules
 import { BrowserModule } from "@angular/platform-browser";
 import { NgModule } from "@angular/core";
-import { AppRoutingModule } from './app-routing.module';
 import { FormsModule } from "@angular/forms";
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { LocalStorageModule } from 'angular-2-local-storage';
+import { AppRoutingModule } from './app-routing.module';
 
 // rant component
 import { AppComponent } from "./app.component";
@@ -18,12 +18,13 @@ import { RantlistComponent } from "./rant-component/rantlist/rantlist.component"
 import { RantComponent } from "./rant-component/rant/rant.component";
 import { RantService } from "./rant-service/rant.service";
 import { AlertComponent } from "./common-component/alert/alert.component";
+import { RantdetailComponent } from "./rant-component/rantdetail/rantdetail.component";
 
 
 
 
 @NgModule({
-  declarations: [AppComponent, HeaderComponent, LoaderComponent, LogginComponent, RantlistComponent, RantComponent, AlertComponent],
+  declarations: [AppComponent, HeaderComponent, LoaderComponent, LogginComponent, RantlistComponent, RantComponent, AlertComponent, RantdetailComponent],
   imports: [BrowserModule, AppRoutingModule, FormsModule, HttpClientModule,
     LocalStorageModule.withConfig({
       prefix: 'my-app',

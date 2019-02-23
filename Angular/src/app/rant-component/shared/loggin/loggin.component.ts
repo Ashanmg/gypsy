@@ -1,4 +1,4 @@
-import { LoginService } from './../../../rant-service/login.service';
+import { LoginService } from '../../../rant-service/login.service';
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import {NgForm} from '@angular/forms';
 import { StorageService } from '../../../rant-service/local-storage.service';
