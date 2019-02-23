@@ -13,19 +13,31 @@ export class LogginComponent implements OnInit {
   showLoginProgress = false;
   isUserNamevalid = true;
   isPasswordValid = true;
+  Username = "";
+  Password = "";
   constructor() { }
 
   ngOnInit() {
   }
 
+
+  resetDefault(){
+    this.Username = "";
+    this.Password = "";
+    this.isPasswordValid = true;
+    this.isUserNamevalid = true;
+    this.showLoginProgress = false;
+  }
+
   exitLogginPopup(){
     this.isLogginPopupOpen = false;
     this.exitPopup.emit(this.isLogginPopupOpen); 
+    this.resetDefault();
   }
 
   onLoginSubmit(login: NgForm){
     if (login.valid) {
-      console.log(" The login is valid");
+
     }else{
       debugger;
       if(login.value.username === ""){

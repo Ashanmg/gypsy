@@ -22,7 +22,7 @@
                           name="username" 
                           placeholder="USERNAME"
                           #username="ngModel"
-                          ngModel
+                          [(ngModel)] = "Username"
                           required
                           (blur)="loginFormInput('username')"
                           tabindex="1"
@@ -35,7 +35,7 @@
                           placeholder="PASSWORD"
                           name="pword"
                           #pword="ngModel"
-                          ngModel
+                          [(ngModel)] = "Password"
                           (blur)="loginFormInput('password')"
                           tabindex="2"
                           required/>
