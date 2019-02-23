@@ -42,7 +42,7 @@
                         <div class="form__error" *ngIf="!isPasswordValid">Please enter your password</div>
 
                         <app-loader [isLoading]="showLoginProgress"></app-loader>                        
-                        <input type="submit" value="LET ME IN" tabindex="3"/>
+                        <input type="submit" value="LET ME IN" tabindex="3" [disabled]="showLoginProgress" />
                     </div>
                 </form>
             </div>
