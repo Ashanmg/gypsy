@@ -7,11 +7,12 @@ import { AppRoutingModule } from './/app-routing.module';
 import { AppComponent } from "./app.component";
 import { HeaderComponent } from "./common-component/header/header.component";
 import { LoaderComponent } from "./common-component/loader/loader.component";
+import { LogginComponent } from "./rant-component/shared/loggin/loggin.component";
 
 
 
 @NgModule({
-  declarations: [AppComponent, HeaderComponent, LoaderComponent],
+  declarations: [AppComponent, HeaderComponent, LoaderComponent, LogginComponent],
   imports: [BrowserModule, AppRoutingModule],
   providers: [],
   bootstrap: [AppComponent]
