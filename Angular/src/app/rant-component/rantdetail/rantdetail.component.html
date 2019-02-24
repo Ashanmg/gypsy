@@ -89,13 +89,9 @@
           <div class="new-comment">
             <textarea maxlength="140"></textarea>
 
-            <div class="loader">
-              <div class="spinner"></div>
-            </div>
+            <app-loader [isLoading]="showLoginProgress"></app-loader>
 
-            <div class="form__error">
-              Some fields are missing !
-            </div>
+            <div class="form__error">Some fields are missing !</div>
 
             <input type="submit" value="COMMENT" />
           </div>

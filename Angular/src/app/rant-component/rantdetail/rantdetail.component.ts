@@ -13,6 +13,8 @@ export class RantdetailComponent implements OnInit {
   queryparameters = null;
   rantData : any;
   isMsgPopupOpen = false;
+  showLoginProgress = false;
+  errorMessage = "";
 
   constructor(private route: ActivatedRoute,
     private router: Router,
@@ -28,13 +30,15 @@ export class RantdetailComponent implements OnInit {
   }
 
   getRantDetails(){
+    this.showLoginProgress = true;
     this.rantService.getRantDetails(this.queryparameters['rant_id']).subscribe(
       (obj : any) => {
         if(obj.ok){
           this.rantData = obj.post;
         }else{
-
+          this.errorMessage = "Can not find post details. Try again !";
         }
+        this.showLoginProgress = false;
       }, error => {
 
       });
