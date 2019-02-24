@@ -12,6 +12,7 @@ export class RantdetailComponent implements OnInit {
 
   queryparameters = null;
   rantData : any;
+  isMsgPopupOpen = false;
 
   constructor(private route: ActivatedRoute,
     private router: Router,
@@ -31,7 +32,6 @@ export class RantdetailComponent implements OnInit {
       (obj : any) => {
         if(obj.ok){
           this.rantData = obj.post;
-          console.log(this.rantData);
         }else{
 
         }
