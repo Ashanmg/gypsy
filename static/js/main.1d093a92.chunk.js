@@ -1,2 +1,0 @@
-(window.webpackJsonp=window.webpackJsonp||[]).push([[0],{10:function(e,n,t){},3:function(e,n,t){e.exports=t(4)},4:function(e,n,t){"use strict";t.r(n);var a=t(0),c=t.n(a),r=t(2),o=t.n(r);t(10);var p=document.getElementById("root");o.a.render(c.a.createElement(function(){return c.a.createElement("div",{className:"App"},c.a.createElement("h1",null,"Eyepax JavaScript Hackathon"))},null),p)}},[[3,2,1]]]);
-//# sourceMappingURL=main.1d093a92.chunk.js.map
