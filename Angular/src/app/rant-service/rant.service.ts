@@ -38,4 +38,14 @@ export class RantService {
 
     return this.http.post(apiGetRantUrl, params);
   }
+
+  deletePost(id){
+
+    const postId =  id ;
+
+    const apiDeleteRantUrl = "https://api.devrant.thusitha.site/v1/post.delete";
+
+    return this.http.delete(apiDeleteRantUrl, postId);
+    // need to check
+  }
 }

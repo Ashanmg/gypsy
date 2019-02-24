@@ -20,7 +20,7 @@
       </div>
     </div>
     <div class="post-hero__footer">
-      <div class="post-hero__delete">DELETE</div>
+      <div class="post-hero__delete" *ngIf="rantData.isMyPost" (click)="onDeletePostDetails(rantData)">DELETE</div>
       <div class="post-hero__time">{{rantData.displayTime}}</div>
     </div>
   </section>
@@ -50,7 +50,7 @@
         </div>
       </div>
       <div class="comment__footer">
-        <div class="comment__delete">DELETE</div>
+        <div class="comment__delete" *ngIf="comment.isMyComment" >DELETE</div>
         <div class="comment__time">{{comment.displayTime}}</div>
       </div>
     </section>

@@ -45,7 +45,8 @@ export class RantdetailComponent implements OnInit {
   }
 
   onVoteForRant(result,rant){
-    if(this.storageService.getUserDetails() !== null){
+    let obj = this.storageService.getUserDetails();
+    if( obj !== null && obj.username !== null && obj.token !== null){
       let direction = result ? "up" : "down";
 
       if(rant.myVote === 1 && direction === "up"){
@@ -58,13 +59,31 @@ export class RantdetailComponent implements OnInit {
         if(obj.ok){
           this.getRantDetails();
         }else{
-          console.log(obj);
         }
       }, error =>{
 
       });
     }else{
 
+    }
+  }
+
+  onDeletePostDetails(rant){
+    let obj = this.storageService.getUserDetails();
+    if( obj !== null && obj.username !== null && obj.token !== null && rant.id !== null){
+      this.rantService.deletePost(rant.id).subscribe(
+        (obj : any) =>{
+          if(obj.ok){
+            // rederect to listpage
+            this.router.navigate[''];
+          }else{
+            // alert message
+          }
+        }, error => {
+          // alert error
+        });
+    }else{
+  // alert error      
     }
   }
 
