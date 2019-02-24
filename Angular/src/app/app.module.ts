@@ -20,12 +20,13 @@ import { RantService } from "./rant-service/rant.service";
 import { AlertComponent } from "./common-component/alert/alert.component";
 import { RantdetailComponent } from "./rant-component/rantdetail/rantdetail.component";
 import { MyvoteComponent } from "./rant-component/shared/myvote/myvote.component";
+import { AddrantComponent } from "./rant-component/shared/addrant/addrant.component";
 
 
 
 
 @NgModule({
-  declarations: [AppComponent, HeaderComponent, LoaderComponent, LogginComponent, RantlistComponent, RantComponent, AlertComponent, RantdetailComponent, MyvoteComponent],
+  declarations: [AppComponent, HeaderComponent, LoaderComponent, LogginComponent, RantlistComponent, RantComponent, AlertComponent, RantdetailComponent, MyvoteComponent, AddrantComponent],
   imports: [BrowserModule, AppRoutingModule, FormsModule, HttpClientModule,
     LocalStorageModule.withConfig({
       prefix: 'my-app',

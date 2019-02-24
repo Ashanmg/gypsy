@@ -28,4 +28,14 @@ export class RantService {
 
     return this.http.get(apiRantDetailUrl + `post.details?postId=${postId}`);
   }
+
+  addNewRant(content){
+    const params = {
+      content : content
+    }
+
+    const apiGetRantUrl = "https://api.devrant.thusitha.site/v1/post.add";
+
+    return this.http.post(apiGetRantUrl, params);
+  }
 }

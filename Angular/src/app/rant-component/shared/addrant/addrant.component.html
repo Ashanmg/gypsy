@@ -1,0 +1,44 @@
+<div class="rant__add" title="Add Rant" (click)="newRantAdd()">+</div>
+<div class="popup" [ngClass]="{'popup--open': isAddPopupOpen}">
+  <div class="popup__header">
+    <div title="Close" class="close layout--center" (click)="exitAddPopup()">
+      X
+    </div>
+  </div>
+  <div class="popup__body layout--center">
+    <div class="popup__body-inner">
+
+      <div class="form">
+        <div class="form__title">
+          NEW
+          <span class="highlight">#</span>RANT
+        </div>
+        <div class="form__description">
+          Express yourself with 140 characters.
+        </div>
+        <form name="new-rant" (ngSubmit)="onNewRantSubmit(newRant)" #newRant="ngForm">
+          <div class="new-rant">
+            <textarea *ngIf="!showLoginProgress"
+              maxlength="140"
+              required
+              id="texteria"
+              name="texteria"
+              #texteria="ngModel"
+              (blur)="addFormInput()"
+              tabindex="1"
+              [(ngModel)]="postText"
+              #textpost
+              ></textarea>
+
+            <app-loader [isLoading]="showLoginProgress"></app-loader>
+
+            <div class="form__error" *ngIf="!isvalidResponse">{{errorMessage}}</div>
+
+            <input type="submit" value="POST" tabindex="2" [disabled]="showLoginProgress">
+          </div>
+        </form>
+      </div>
+
+    </div>
+  </div>
+</div>

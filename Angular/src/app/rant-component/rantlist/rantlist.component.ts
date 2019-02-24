@@ -8,6 +8,7 @@ import { Component, OnInit, Input } from '@angular/core';
 export class RantlistComponent implements OnInit {
 
   @Input() showProgress = false;
+  isAddingNewRant = false;
 
   constructor() { }
 
@@ -18,5 +19,4 @@ export class RantlistComponent implements OnInit {
   isLoadingRantList(value){
     this.showProgress = value;
   }
-
 }

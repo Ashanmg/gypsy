@@ -1,5 +1,5 @@
 import { LoginService } from '../../../rant-service/login.service';
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter, ViewChild } from '@angular/core';
 import {NgForm} from '@angular/forms';
 import { StorageService } from '../../../rant-service/local-storage.service';
 
@@ -13,6 +13,8 @@ export class LogginComponent implements OnInit {
   @Input() isLogginPopupOpen = false;
   @Output() exitPopup = new EventEmitter();
   @Output() userlogin = new EventEmitter();
+  @ViewChild('username') usernameElement: any;
+  @ViewChild('pword') passwordElement: any;
   showLoginProgress = false;
   isUserNamevalid = true;
   isPasswordValid = true;
@@ -64,10 +66,14 @@ export class LogginComponent implements OnInit {
       this.isCredentialValid = true;
       if(login.value.username === ""){
         this.isUserNamevalid = false;
+        this.usernameElement.nativeElement.focus();
       }
 
       if(login.value.pword === ""){
-        this.isPasswordValid = false;  
+        this.isPasswordValid = false;
+        if(login.value.username != ""){
+          this.passwordElement.nativeElement.focus();
+        }  
       }
     }
   }

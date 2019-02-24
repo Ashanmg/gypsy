@@ -20,7 +20,6 @@ export class MyvoteComponent implements OnInit {
   }
 
   onVoteForRant(isupvote){
-
     this.valueChange.emit(isupvote);
   }
 

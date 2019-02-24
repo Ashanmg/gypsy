@@ -1,6 +1,6 @@
 import { Router, Routes } from '@angular/router';
 import { RantService } from '../../rant-service/rant.service';
-import { Component, OnInit, EventEmitter, Output } from '@angular/core';
+import { Component, OnInit, EventEmitter, Output, Input } from '@angular/core';
 import { RantModel } from '../rantdetail/rant.model';
 import { StorageService } from '../../rant-service/local-storage.service';
 
@@ -64,5 +64,11 @@ export class RantComponent implements OnInit {
 
   viewRantDetails(rant){
     this.router.navigate(['/rant'], { queryParams: { rant_id: rant.id } });
+  }
+
+  isPostAdded(event){
+    if(event){
+      this.getRantList();
+    }
   }
 }
