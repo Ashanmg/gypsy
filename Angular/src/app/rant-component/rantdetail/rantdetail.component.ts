@@ -87,4 +87,8 @@ export class RantdetailComponent implements OnInit {
     }
   }
 
+  exitLogginPopup(){
+    
+  }
+
 }
